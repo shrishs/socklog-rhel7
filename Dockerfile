@@ -1,9 +1,6 @@
 FROM registry.access.redhat.com/rhel7:latest
 #FROM base-centos7:latest
 
-# the latest download link is at
-# http://nxlog.org/products/nxlog-community-edition/download
-
 RUN set -x \
   && yum -y install socat gunzip tar \
   && yum -y groupinstall 'Development Tools' \
@@ -17,6 +14,12 @@ RUN set -x \
   && yum -y groupremove 'Development Tools' \
   && yum -y clean all
 
+ENV SYSLOG_PORT=8514
+COPY run-socklog.sh /
+RUN chmod 755 /run-socklog.sh
+EXPOSE 8514/udp
+USER default
 
+# ENTRYPOINT ["/run-socklog.sh"]
 #CMD ["/bin/sh"]
 CMD ["/bin/sh","-c","while true; do echo hello world; sleep 30; done"]
