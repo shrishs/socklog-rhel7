@@ -1,1 +1,1 @@
-# rhel7-nxlog
+# rhel7-socklog
