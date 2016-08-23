@@ -20,6 +20,6 @@ RUN chmod 755 /run-socklog.sh
 EXPOSE 8514/udp
 USER default
 
-# ENTRYPOINT ["/run-socklog.sh"]
+ENTRYPOINT ["/run-socklog.sh"]
 #CMD ["/bin/sh"]
-CMD ["/bin/sh","-c","while true; do echo hello world; sleep 30; done"]
+#CMD ["/bin/sh","-c","while true; do echo hello world; sleep 30; done"]
