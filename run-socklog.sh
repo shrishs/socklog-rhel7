@@ -2,7 +2,7 @@
 
 set -x
 
-if [ -n ${UNIX} ];
+if [ -n "${UNIX}" ];
 then  
   exec /usr/local/bin/socklog
 else
