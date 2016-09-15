@@ -2,8 +2,9 @@ FROM registry.access.redhat.com/rhel7:latest
 #FROM base-centos7:latest
 
 RUN set -x \
+  && yum -y update \
   && yum -y install socat gunzip tar \
-  && yum -y groupinstall 'Development Tools' \
+  && yum -y groupinstall 'Development Tools' --setopt=group_package_types=mandatory,default,optional \
   && mkdir /package && cd /package \
   && curl -sSO http://smarden.org/socklog/socklog-2.1.0.tar.gz \
   && tar xfvz socklog-2.1.0.tar.gz \
@@ -18,7 +19,8 @@ ENV SYSLOG_PORT=8514
 COPY run-socklog.sh /
 RUN chmod 755 /run-socklog.sh
 EXPOSE 8514/udp
-USER default
+
+USER 1001
 
 ENTRYPOINT ["/run-socklog.sh"]
 #CMD ["/bin/sh"]
