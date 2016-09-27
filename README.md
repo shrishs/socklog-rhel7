@@ -21,6 +21,9 @@ interfaces and writes the incomming messages to stdout.
 The `run-socklog.sh` is also able to listen on unix domain stream socket when 
 you set the env var `UNIX` to any value.
 
+You can't use this mode in OCP when you run in random user mode without 
+privileged sa
+
 # Attention!
 
 Due to the fact that the stdout is written in a docker-json-log you should 
