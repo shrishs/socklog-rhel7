@@ -22,7 +22,7 @@ RUN set -x \
   && rm socklog-2.1.0.tar.gz \
   && cd admin/socklog-2.1.0 \
   && package/install \
-  && yum -y autoremove gunzip tar \
+  && yum -y autoremove gunzip \
   && yum -y groupremove 'Development Tools' \
   && yum -y clean all
 
