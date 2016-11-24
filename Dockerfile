@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/rhel7:latest
+FROM registry.access.redhat.com/rhel7:7.2
 #FROM base-centos7:latest
 
 # added --skip-broken  because of
