@@ -29,7 +29,7 @@ RUN set -x \
 ENV SYSLOG_PORT=8514
 COPY run-socklog.sh /
 RUN chmod 755 /run-socklog.sh
-EXPOSE 8514/udp
+EXPOSE 8514
 
 USER 1001
 
